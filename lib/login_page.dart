@@ -126,6 +126,7 @@ class _LoginPageState extends State<LoginPage> {
             keyboardType: TextInputType.emailAddress,
             validator: (value) => value.isEmpty ? 'Email cannot be empty' : null,
             onSaved: (value) => _email = value,
+
           ),),
 
           padded(child:new TextFormField(
@@ -159,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   height: 50.0,
                   minWidth: 150.0,
-                  color: Colors.indigoAccent,
+                  color: Colors.lightBlueAccent,
                   splashColor: Colors.teal,
                   textColor: Colors.white,
                   onPressed: validateAndSubmit, //() {
@@ -178,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     height: 50.0,
                     minWidth: 150.0,
-                    color: Colors.indigoAccent,
+                    color: Colors.green[300],
                     splashColor: Colors.teal,
                     textColor: Colors.white,
                     onPressed: moveToRegister //() {
@@ -196,50 +197,44 @@ class _LoginPageState extends State<LoginPage> {
         return [
             Padding(  padding: const EdgeInsets.only(top: 40.0),
             ),
-            new Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new MaterialButton(
-                  child: new Text("Sign Up",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25.0,
-                    ),
+            new MaterialButton(
+              child: new Text("Sign Up",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25.0,
+                ),
+              ),
+              height: 50.0,
+              minWidth: 100.0,
+              color: Colors.lightBlueAccent,
+              splashColor: Colors.teal,
+              textColor: Colors.white,
+              onPressed: validateAndSubmit, //() {
+              //Navigator.push(context,
+              //new MaterialPageRoute(builder: (context) => new Home()),
+              //);
+
+              //},
+            ),
+            Padding(padding: EdgeInsets.only(top: 15)),
+            new MaterialButton(
+                child: new Text("Have an account?Login",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15.0,
                   ),
-                  height: 50.0,
-                  minWidth: 100.0,
-                  color: Colors.indigoAccent,
-                  splashColor: Colors.teal,
-                  textColor: Colors.white,
-                  onPressed: validateAndSubmit, //() {
-                  //Navigator.push(context,
-                  //new MaterialPageRoute(builder: (context) => new Home()),
-                  //);
-
-                  //},
                 ),
-                Padding(padding: EdgeInsets.only(left: 15.0)),
-                new MaterialButton(
-                    child: new Text("Have an account? Login",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15.0,
-                      ),
-                    ),
-                    height: 50.0,
-                    minWidth: 150.0,
-                    color: Colors.indigoAccent,
-                    splashColor: Colors.teal,
-                    textColor: Colors.white,
-                    onPressed: moveToLogin //() {
-                  // Navigator.push(context,
-                  //  new MaterialPageRoute(builder: (context) => new Home()),
-                  //  );
+                height: 50.0,
+                minWidth: 150.0,
+                color: Colors.green[300],
+                splashColor: Colors.teal,
+                textColor: Colors.white,
+                onPressed: moveToLogin //() {
+              // Navigator.push(context,
+              //  new MaterialPageRoute(builder: (context) => new Home()),
+              //  );
 
-                  //  },
-                ),
-
-              ],
+              //  },
             ),
             
           ];
@@ -250,21 +245,21 @@ class _LoginPageState extends State<LoginPage> {
       return[
         Padding(padding: EdgeInsets.only(top: 15.0)),
         new Text("Forget Password ?",
-          style: TextStyle(fontSize: 18.0, color: Colors.white),),
+          style: TextStyle(fontSize: 14.0, color: Colors.black54),),
         Padding(padding: EdgeInsets.only(top: 10.0)),
         new Text("Or",
-          style: TextStyle(fontSize: 20.0, color: Colors.white),),
-        Padding(padding: EdgeInsets.only(top: 20.0)),
-        SignInButton(Buttons.Google, text: "Sign up with Google",
+          style: TextStyle(fontSize: 16.0, color: Colors.black54),),
+        Padding(padding: EdgeInsets.only(top: 5.0)),
+        SignInButton(Buttons.Google, text: "SignUp using Google",
             onPressed: () =>signInWithGoogle().whenComplete(()=>
-                Navigator.of(context).push(
+                Navigator.of(context).pushReplacement(
                   new MaterialPageRoute(
                       builder: (context) {
                         return HomePage();
                       }),
                 )).catchError((e) => print(e))
         ),
-        Padding(padding: EdgeInsets.only(top: 20.0)),
+        Padding(padding: EdgeInsets.only(top: 0.8)),
         new Text("Follow On", style: TextStyle(
             color: Colors.white, fontSize: 18.0)),
         Padding(padding: EdgeInsets.only(top: 10.0)),

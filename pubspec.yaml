@@ -26,7 +26,7 @@ dependencies:
   animated_text_kit:
   flutter_signin_button:
   font_awesome_flutter:
-  google_sign_in: ^3.2.4
+  google_sign_in:
   firebase_auth:
   flare_flutter:
 

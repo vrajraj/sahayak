@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'login_page.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({this.auth, this.onSignOut});
   final BaseAuth auth;
@@ -34,6 +36,7 @@ class _HomePageState extends State<HomePage> {
     void GoogleSignOut() async
     {
       await googleSignIn.signOut();
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {return LoginPage();}), ModalRoute.withName('/'));
       print("user signout");
     }
 
@@ -72,7 +75,8 @@ class _HomePageState extends State<HomePage> {
     ),
       Divider(color: Colors.lightBlue,
         height:50.0,),
-      InkWell(onTap:GoogleSignOut,child:ListTile(
+      InkWell(onTap: GoogleSignOut
+        ,child:ListTile(
         title: Text("Google Logout", style: new TextStyle(fontSize: 16,color: Colors.black ),),
         trailing: new Icon(Icons.call_made),
       ),

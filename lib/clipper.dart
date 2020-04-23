@@ -19,7 +19,7 @@ class Clipper extends StatelessWidget {
               decoration: BoxDecoration(
                   gradient: LinearGradient(colors:[Colors.lightBlueAccent,Colors.green[300]])),
           child: Padding(
-            padding: const EdgeInsets.only(top:80,left: 25),
+            padding: const EdgeInsets.only(top:45,left: 25),
             child: SizedBox(
               width: 30,height: 100,
               child: TyperAnimatedTextKit(
